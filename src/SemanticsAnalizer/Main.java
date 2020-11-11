@@ -1,4 +1,4 @@
-package GitGyakorlas;
+package SemanticsAnalizer;
 
 public class Main {
 
