@@ -5,6 +5,6 @@ import java.util.List;
 
 public class Database {
 
-    List<String> wordsList = new ArrayList<>();
+    List<String> wordsFromText = new ArrayList<>();
 
 }
