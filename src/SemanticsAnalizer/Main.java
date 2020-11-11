@@ -10,6 +10,7 @@ public class Main {
 
         operatot.reader("files/szoveg.txt");
         System.out.println(database.wordsFromText.toString());
+        System.out.println(database.wordAppearance);
 
     }
 }
