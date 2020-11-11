@@ -29,4 +29,8 @@ public class Operatot {
 
     }
 
+    public void getRealWords() {
+        String[] conjuctives = {"a","az","és","de",
+    }
+
 }

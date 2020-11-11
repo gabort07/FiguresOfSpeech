@@ -7,4 +7,7 @@ public class Database {
 
     List<String> wordsFromText = new ArrayList<>();
 
+    List<String> realWordsList = new ArrayList<>();
+
+
 }
