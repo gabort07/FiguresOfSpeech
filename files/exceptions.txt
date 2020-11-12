@@ -1,3 +1,4 @@
+""
 a
 az
 ahogy
@@ -19,10 +20,14 @@ azazhogy
 azonban
 bár
 bizony
+csak
 de
 dehát
 dehogy
 e
+egy
+ez
+én
 és
 ezért
 ha
@@ -37,6 +42,8 @@ illetőleg
 illetve
 immár
 is
+ki
+kik
 kivéve ha
 máskülönben
 meg
@@ -44,6 +51,8 @@ mégis
 mégpedig
 mert
 merthogy
+mi
+mit
 mihelyt
 miként
 mindazáltal
@@ -53,8 +62,10 @@ mintha
 minthogy
 mivel
 mivelhogy
+míg
 nahát
 nehogy
+nem
 nos
 óh
 pedig

@@ -9,8 +9,8 @@ public class Main {
         Operatot operatot = new Operatot(database);
 
         operatot.reader("files/szoveg.txt");
-        System.out.println(database.wordsFromText.toString());
-        System.out.println(database.wordAppearance);
-
+//        System.out.println(database.wordsFromText.toString());
+//        System.out.println(database.wordAppearance);
+        operatot.getCommonWords(database.wordAppearance, 10);
     }
 }
