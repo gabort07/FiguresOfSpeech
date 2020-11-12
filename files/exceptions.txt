@@ -87,3 +87,6 @@ valamennyi
 valamint
 viszont
 így
+tán
+úgy
+volt
