@@ -21,27 +21,19 @@ public class Operatot {
         while (sc2.hasNextLine()) {
             wordsToIgnore.add(sc2.nextLine());
         }
-
-        Scanner sc = new Scanner(new File(textPath));
-
         List<String> texList = new ArrayList<>();
+        textDecoder(texList, wordsToIgnore, textPath);
+    }
 
+    public void textDecoder(List<String> texList, List<String> wordsToIgnore, String textPath) throws FileNotFoundException {
         HashMap<String, Integer> wordsMap = new HashMap<>();
+        Scanner sc = new Scanner(new File(textPath));
         while (sc.hasNextLine()) {
             String[] textParts = sc.nextLine().split(" ");
             for (String s : textParts) {
-                String a = s;
-                texList.add(a.trim().toLowerCase().replaceAll("[^\\p{IsAlphabetic}\\p{IsDigit}]", ""));
-                boolean contains = false;
-                for (int i = 0; i < wordsToIgnore.size(); i++) {
-                    if (wordsToIgnore.get(i).equals(a)) {
-                        contains = true;
-                    }
-                }
-                if(!contains){
-                    wordsMap.putIfAbsent(a, 1);
-                    wordsMap.put(a, wordsMap.get(a) + 1);
-                }
+                String a = s.trim().toLowerCase().replaceAll("[^\\p{IsAlphabetic}\\p{IsDigit}]", "");
+                texList.add(a);
+                mapBuilder(wordsMap, wordsToIgnore, a);
             }
         }
 
@@ -50,19 +42,18 @@ public class Operatot {
 
     }
 
-
-    public void isRealWords() {
+    public void mapBuilder(HashMap<String, Integer> wordsMap, List<String> wordsToIgnore, String a) {
         boolean contains = false;
         for (int i = 0; i < wordsToIgnore.size(); i++) {
             if (wordsToIgnore.get(i).equals(a)) {
                 contains = true;
             }
         }
-        if(!contains){
+        if (!contains) {
             wordsMap.putIfAbsent(a, 1);
             wordsMap.put(a, wordsMap.get(a) + 1);
         }
-
     }
-
 }
+
+
