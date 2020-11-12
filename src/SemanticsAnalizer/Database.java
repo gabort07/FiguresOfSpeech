@@ -8,7 +8,7 @@ import java.util.Map;
 public class Database {
 
     List<String> wordsFromText = new ArrayList<>();
-    List<String> filteredText = new ArrayList<>();
-    Map<String, Integer> wordAppearance = new HashMap<>();
+    List<String> wordsToIgnore = new ArrayList<>();
+    HashMap<String, Integer> wordAppearance = new HashMap<>();
 
 }

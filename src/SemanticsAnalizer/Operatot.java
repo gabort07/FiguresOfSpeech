@@ -12,14 +12,34 @@ public class Operatot {
         this.database = database;
     }
 
+    public void userInputReade(String userInput){
+        String[] textParts = userInput.split(" ");
+        stringDecoder(textParts);
+    }
+
     public void reader(String textPath) throws FileNotFoundException {
+        Scanner sc = new Scanner(new File(textPath));
+        while (sc.hasNextLine()) {
+            String[] textParts = sc.nextLine().split(" ");
+            stringDecoder(textParts);
+        }
+    }
+
+    public void stringDecoder(String[] stringArray) {
+        for (String s : stringArray) {
+            String a = s.trim().toLowerCase().replaceAll("[^\\p{IsAlphabetic}\\p{IsDigit}]", "");
+            if (!a.equals("")) {
+                database.wordsFromText.add(a);
+                mapBuilder(database.wordAppearance, database.wordsToIgnore, a);
+            }
+        }
+    }
+
+    public void makeExceptionList(List<String> wordsToIgnore) throws FileNotFoundException {
         Scanner sc2 = new Scanner(new File("files/exceptions.txt"));
-        List<String> wordsToIgnore = new ArrayList<>();
         while (sc2.hasNextLine()) {
             wordsToIgnore.add(sc2.nextLine());
         }
-        List<String> texList = new ArrayList<>();
-        textDecoder(texList, wordsToIgnore, textPath);
     }
 
     public void getCommonWords(Map<String, Integer> wordsMap, int size) {
@@ -41,28 +61,10 @@ public class Operatot {
         System.out.println(words.toString());
     }
 
-    public void textDecoder(List<String> texList, List<String> wordsToIgnore, String textPath) throws
-            FileNotFoundException {
-        HashMap<String, Integer> wordsMap = new HashMap<>();
-        Scanner sc = new Scanner(new File(textPath));
-        while (sc.hasNextLine()) {
-            String[] textParts = sc.nextLine().split(" ");
-            for (String s : textParts) {
-                String a = s.trim().toLowerCase().replaceAll("[^\\p{IsAlphabetic}\\p{IsDigit}]", "");
-                texList.add(a);
-                mapBuilder(wordsMap, wordsToIgnore, a);
-            }
-        }
-
-        database.wordAppearance = wordsMap;
-        database.wordsFromText = texList;
-
-    }
-
     public void mapBuilder(HashMap<String, Integer> wordsMap, List<String> wordsToIgnore, String a) {
         boolean contains = false;
         for (String s : wordsToIgnore) {
-            if (s.equals(a)) {
+            if (a.equals("") || s.equals(a)) {
                 contains = true;
                 break;
             }

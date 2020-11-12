@@ -7,6 +7,8 @@ public class Main {
     public static void main(String[] args) throws FileNotFoundException {
         Database database = new Database();
         Operatot operatot = new Operatot(database);
+        operatot.makeExceptionList(database.wordsToIgnore);
+
 
         operatot.reader("files/szoveg.txt");
 //        System.out.println(database.wordsFromText.toString());
