@@ -44,9 +44,10 @@ public class Operatot {
 
     public void mapBuilder(HashMap<String, Integer> wordsMap, List<String> wordsToIgnore, String a) {
         boolean contains = false;
-        for (int i = 0; i < wordsToIgnore.size(); i++) {
-            if (wordsToIgnore.get(i).equals(a)) {
+        for (String s : wordsToIgnore) {
+            if (s.equals(a)) {
                 contains = true;
+                break;
             }
         }
         if (!contains) {
